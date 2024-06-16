@@ -4,6 +4,8 @@ import 'package:finalmad/cart.dart';
 import 'package:finalmad/profile.dart';
 import 'package:finalmad/model/food.dart';
 import 'package:finalmad/detail.dart';
+import 'package:finalmad/prices_page.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -119,6 +121,8 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 20),
           gridCoffee(),
           const SizedBox(height: 20),
+          todayPriceButton(),
+          const SizedBox(height: 20),
           cardExample(),
           const SizedBox(height: 20),
           scrollableListExample(),
@@ -154,6 +158,40 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+
+
+
+  Widget todayPriceButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PricesPage()),
+          );
+        },
+        child: Text(
+          'COFFEE INFO ',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.brown,
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+      ),
+    );
+  }
+
+
 
   Widget search() {
     return Container(
